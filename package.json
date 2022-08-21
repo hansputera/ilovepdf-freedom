@@ -1,0 +1,22 @@
+{
+  "name": "ilovepdf",
+  "version": "1.0.0",
+  "description": "Use iLovePDF API without using an API Key",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ilovepdf",
+    "pdf",
+    "word",
+    "pdf-converter",
+    "jpg2pdf"
+  ],
+  "author": "Hanif Dwy Putra S <hanifdwyputrasembiring@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "got": "^12.3.1"
+  }
+}
