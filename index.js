@@ -29,7 +29,7 @@ export class ILovePDF {
    * @return {Task}
    */
   async newTask(tool) {
-    if (typeof this.token !== "string" || !Array.isArray(this.workers)) {
+    if (typeof this.token !== "string") {
       const response = await got("https://www.ilovepdf.com/word_to_pdf");
       const config = await getConfig(response.body);
 
@@ -39,11 +39,15 @@ export class ILovePDF {
     }
 
     if (!validateTool(tool)) return undefined;
-    const taskResponse = await this.request.get("./v1/start/".concat(tool));
+    const taskResponse = await this.request
+      .get("./v1/start/".concat(tool))
+      .json();
 
-    return new Task(this.token, taskResponse.server, taskResponse.task);
+    return new Task(this.token, tool.toLowerCase(), taskResponse.server, taskResponse.task);
   }
 }
 
 const instance = new ILovePDF();
-instance.newTask("officepdf");
+const task = await instance.newTask("officepdf");
+
+await task.addFileFromPath("./test.odt");

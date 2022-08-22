@@ -1,9 +1,11 @@
 lockfileVersion: 5.4
 
 specifiers:
+  formdata-node: ^4.4.0
   got: ^12.3.1
 
 dependencies:
+  formdata-node: 4.4.0
   got: 12.3.1
 
 packages:
@@ -155,6 +157,17 @@ packages:
     engines: { node: ">= 14.17" }
     dev: false
 
+  /formdata-node/4.4.0:
+    resolution:
+      {
+        integrity: sha512-Q1LZsZggMqcmiAv1VIf4qSo1jxROFYUtuwNbJxman4UurKp3kdcDhtIK2+rKKqa0Xgqlga0qea3s+qH4I4v5kw==,
+      }
+    engines: { node: ">= 12.20" }
+    dependencies:
+      node-domexception: 1.0.0
+      web-streams-polyfill: 4.0.0-beta.2
+    dev: false
+
   /get-stream/5.2.0:
     resolution:
       {
@@ -262,6 +275,14 @@ packages:
     engines: { node: ">=10" }
     dev: false
 
+  /node-domexception/1.0.0:
+    resolution:
+      {
+        integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==,
+      }
+    engines: { node: ">=10.5.0" }
+    dev: false
+
   /normalize-url/6.1.0:
     resolution:
       {
@@ -319,6 +340,14 @@ packages:
       }
     dependencies:
       lowercase-keys: 2.0.0
+    dev: false
+
+  /web-streams-polyfill/4.0.0-beta.2:
+    resolution:
+      {
+        integrity: sha512-UHhhnoe2M40uh2r0KVdJTN7qjFytm6o0Yp3VcjwV3bfo6rz8uqvxNoE5yNmGF0y3eFfXaFeb6M09MDSwwLmq4w==,
+      }
+    engines: { node: ">= 14" }
     dev: false
 
   /wrappy/1.0.2:

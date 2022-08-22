@@ -1,5 +1,5 @@
 {
-  "name": "ilovepdf",
+  "name": "ilovepdf-freedom",
   "version": "1.0.0",
   "description": "Use iLovePDF API without using an API Key",
   "main": "index.js",
@@ -17,6 +17,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "formdata-node": "^4.4.0",
     "got": "^12.3.1"
   }
 }
