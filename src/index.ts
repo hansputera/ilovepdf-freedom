@@ -1,5 +1,5 @@
 const main = (): void => {
-	console.log('Hello World');
+  console.log('Hello World');
 };
 
 main();
