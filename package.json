@@ -4,7 +4,10 @@
   "description": "Use iLovePDF API without using an API Key",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "format": "prettier . --write",
+    "build": "tsc -p tsconfig.json",
+    "prepare": "husky install"
   },
   "keywords": [
     "ilovepdf",
@@ -14,5 +17,16 @@
     "jpg2pdf"
   ],
   "author": "Hanif Dwy Putra S <hanifdwyputrasembiring@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": ">=5.31.0",
+    "@typescript-eslint/parser": ">=5.31.0",
+    "eslint": ">=8.0.0",
+    "eslint-config-xo": "^0.42.0",
+    "eslint-config-xo-typescript": "^0.53.0",
+    "eslint-plugin-import": "^2.25.2",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
+    "typescript": ">=4.4"
+  }
 }
