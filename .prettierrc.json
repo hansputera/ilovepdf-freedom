@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/prettierrc.json",
   "arrowParens": "always",
-  "bracketSpacing": true,
+  "bracketSpacing": false,
   "htmlWhitespaceSensitivity": "strict",
   "tabWidth": 2,
   "semi": true,
