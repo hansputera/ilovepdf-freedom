@@ -11,11 +11,13 @@ export class Task {
    * @param {string} id Task ID
    * @param {string} token Task token
    * @param {string} server Task's server
+   * @param {string} tool Task's tool
    */
   constructor(
     public id: string,
     protected token: string,
     protected server: string,
+    protected tool: string,
   ) {}
 
   /**
