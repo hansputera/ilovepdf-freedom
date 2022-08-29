@@ -1,7 +1,6 @@
 import axios, {AxiosInstance} from 'axios';
-import {FormData} from 'formdata-node';
-import {fileFromPath} from 'formdata-node/file-from-path';
-import fs from 'node:fs/promises';
+import FormData from 'form-data';
+import fs from 'node:fs';
 
 /**
  * @class Task
@@ -44,12 +43,12 @@ export class Task {
    * @return {Promise<boolean>}
    */
   async addFileLocal(filePath: string): Promise<boolean> {
-    const stat = await fs.stat(filePath).catch(() => undefined);
+    const stat = await fs.promises.stat(filePath).catch(() => undefined);
     if (!stat || stat.isDirectory()) return false;
 
     const form = new FormData();
-    form.set('task', this.id);
-    form.set('file', await fileFromPath(filePath));
+    form.append('task', this.id);
+    form.append('file', fs.createReadStream(filePath));
 
     const response = await this.request.post('/v1/upload', form);
     if (!response.data.server_filename) return false;
