@@ -58,4 +58,21 @@ export class Task {
 
     return true;
   }
+
+  /**
+   * Add file via URL
+   * @param {string} fileUrl File URL
+   * @return {Promise<boolean>}
+   */
+  async addFileUrl(fileUrl: string): Promise<boolean> {
+    const response = await this.request.post('/v1/upload', {
+      'task': this.id,
+      'cloud_file': fileUrl,
+    });
+
+    if (!response.data?.server_filename) return false;
+    this.files.push(response.data.server_filename);
+
+    return true;
+  }
 }
