@@ -38,6 +38,7 @@ export class ILovePDF {
     if (typeof config?.token !== 'string') {
       throw new Error('Couldnt find token!');
     }
+
     this.#token = config.token;
   }
 
@@ -54,11 +55,11 @@ export class ILovePDF {
       await this.refreshToken();
     }
 
-    const response = await this.request.post(
-      format('/v1/start/%s', this.#token.toLowerCase()),
+    const response = await this.request.get(
+      format('/v1/start/%s', tool.toLowerCase()),
     );
 
-    if (response.status !== 200) return undefined;
+    if (!response.data?.task) return undefined;
     else return new Task(response.data.task, this.#token, response.data.server);
   }
 }
