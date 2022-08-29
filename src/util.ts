@@ -1,7 +1,7 @@
-import type { Config } from './@typings';
+import type {Config, Tool} from './@typings';
 
 export const getConfig = async (html: string): Promise<Config | undefined> => {
-  if (typeof html !== 'string') throw new TypeError("'html' isn't string");
+  if (typeof html !== 'string') throw new TypeError('html isnt string');
   const regex = new RegExp(/ilovepdfconfig\s+=\s+(.*)/, 'i');
   try {
     return JSON.parse(
@@ -11,3 +11,20 @@ export const getConfig = async (html: string): Promise<Config | undefined> => {
     return undefined;
   }
 };
+
+export const getTools = (): Tool[] => [
+  'merge',
+  'split',
+  'compress',
+  'pdfjpg',
+  'imagepdf',
+  'unlock',
+  'pagenumber',
+  'watermark',
+  'officepdf',
+  'repair',
+  'rotate',
+  'protect',
+  'pdfa',
+  'htmlpdf',
+];
