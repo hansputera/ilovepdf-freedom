@@ -60,6 +60,13 @@ export class ILovePDF {
     );
 
     if (!response.data?.task) return undefined;
-    else return new Task(response.data.task, this.#token, response.data.server);
+    else {
+      return new Task(
+        response.data.task,
+        this.#token,
+        response.data.server,
+        tool.toLowerCase(),
+      );
+    }
   }
 }
