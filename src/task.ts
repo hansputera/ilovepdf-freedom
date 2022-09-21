@@ -2,6 +2,9 @@ import axios, {AxiosInstance} from 'axios';
 import FormData from 'form-data';
 import fs from 'node:fs';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type UseAny = any;
+
 /**
  * @class Task
  */
@@ -74,5 +77,25 @@ export class Task {
     this.files.push(response.data.server_filename);
 
     return true;
+  }
+
+  /**
+   * Process current task.
+   * @param {any} args Process payload
+   * @return {Promise<any>}
+   */
+  async process(args: UseAny): Promise<UseAny> {
+    const response = await this.request
+      .post('/v1/process', {
+        ...args,
+        task: this.id,
+        tool: this.tool,
+        files: this.files.map((fl) => ({
+          server_filename: fl,
+        })),
+      })
+      .catch((e) => e.response);
+
+    return response.data;
   }
 }
