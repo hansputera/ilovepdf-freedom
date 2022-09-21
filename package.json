@@ -2,7 +2,7 @@
   "name": "ilovepdf-freedom",
   "version": "1.0.0",
   "description": "Use iLovePDF API without using an API Key",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" --fix",
     "format": "prettier . --write",
