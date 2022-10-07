@@ -19,6 +19,7 @@
   "author": "Hanif Dwy Putra S <hanifdwyputrasembiring@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^18.8.3",
     "@typescript-eslint/eslint-plugin": ">=5.31.0",
     "@typescript-eslint/parser": ">=5.31.0",
     "eslint": ">=8.0.0",
