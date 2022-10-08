@@ -32,7 +32,9 @@ export class ILovePDF {
    * @return {Promise<void>}
    */
   async refreshToken(): Promise<void> {
-    const response = await axios.get('https://ilovepdf.com/merge_pdf');
+    const response = await axios
+      .get('https://ilovepdf.com/merge_pdf')
+      .catch((e) => e.response);
     const config = await getConfig(response.data);
 
     if (typeof config?.token !== 'string') {
