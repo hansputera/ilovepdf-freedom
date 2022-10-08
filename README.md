@@ -8,16 +8,18 @@ Use ilovepdf.com API without API Key
 - Add signatures method on `ILovePDF` class (see https://developer.ilovepdf.com/docs/api-reference#create-signature)
 
 ## Basic Usage:
+
 For `Task.process()`, see https://developer.ilovepdf.com/docs/api-reference#process
+
 ```ts
 import {ILovePDF} from 'ilovepdf-freedom';
 const instance = new ILovePDF();
 
-(async() => {
-    const task = await instance.newTask('officepdf');
-    await task.addFileLocal('./file.docx');
+(async () => {
+  const task = await instance.newTask('officepdf');
+  await task.addFileLocal('./file.docx', 'file_name');
 
-    const response = await task.process({});
-    console.log(response);
+  const response = await task.process({});
+  console.log(response);
 })();
 ```
