@@ -2,11 +2,11 @@ import type {Config, Tool} from './@typings';
 
 export const getConfig = async (html: string): Promise<Config | undefined> => {
   if (typeof html !== 'string') throw new TypeError('html isnt string');
-  const regex = new RegExp(/ilovepdfconfig\s+=\s+(.*)/, 'i');
+  const matchs = new RegExp(/ilovepdfconfig\s+=\s+(.*)/, 'gi').exec(html);
+
+  if (!matchs || matchs.length < 2) return undefined;
   try {
-    return JSON.parse(
-      regex.exec(html)?.at(1)?.replace(/;/g, '') as string,
-    ) as Config;
+    return JSON.parse(matchs[1].replace(/;/g, '') as string) as Config;
   } catch {
     return undefined;
   }
@@ -28,3 +28,21 @@ export const getTools = (): Tool[] => [
   'pdfa',
   'htmlpdf',
 ];
+
+export const throwIfTypeIsNot = <T>(
+  data: T,
+  expectedType:
+    | 'string'
+    | 'number'
+    | 'bigint'
+    | 'boolean'
+    | 'symbol'
+    | 'undefined'
+    | 'object'
+    | 'function',
+  message: string,
+) => {
+  if (typeof data !== expectedType.toLowerCase()) {
+    throw new Error(message);
+  } else return undefined;
+};
